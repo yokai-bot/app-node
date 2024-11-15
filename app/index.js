@@ -19,4 +19,5 @@ app.use(express.static(__dirname + '/public'))
 //rutas
 app.get('/',(req,res)=> res.sendFile(__dirname + '/pages/login.html'))
 app.get('/register',(req,res)=> res.sendFile(__dirname + '/pages/register.html'))
+app.get('/admin',(req,res)=> res.sendFile(__dirname + '/pages/admin/admin.html'))
 
