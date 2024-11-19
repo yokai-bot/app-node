@@ -1,4 +1,7 @@
+const messageError = document.getElementsByClassName("error")[0];
+
 document.getElementById("register-form").addEventListener("submit",async(e)=>{
+    e.preventDefault();
     const res = await fetch("http://localhost:4000/api/register",{
         method:"POST",
         headers:{
@@ -10,7 +13,7 @@ document.getElementById("register-form").addEventListener("submit",async(e)=>{
             password: e.target.children.password.value
         })
     });
-    if(!res.ok) return;
+    if(!res.ok) return messageError.classList.toggle("escondido",false);
     const resJson = await res.json();
     if(resJson.redirect){
         window.location.href = resJson.redirect;
